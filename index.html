@@ -1,1 +1,61 @@
-coming soon
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SQL Mystery</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // copied from main site: picks the language before the page is drawn
+    (function () {
+      var lang = null;
+      try {
+        var saved = localStorage.getItem('lang');
+        if (saved === 'da' || saved === 'en') lang = saved;
+      } catch (e) {}
+      if (!lang) {
+        var prefs = navigator.languages || [navigator.language || ''];
+        for (var i = 0; i < prefs.length && !lang; i++) {
+          var code = String(prefs[i]).slice(0, 2).toLowerCase();
+          if (code === 'da' || code === 'en') lang = code;
+        }
+      }
+      document.documentElement.lang = lang || 'en';
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="https://ulsh.dk/">~/ulsh<span class="accent">.dk_</span></a>
+      <nav class="site-nav" aria-label="Menu">
+        <a href="https://ulsh.dk/#about"><span lang="da">Om mig</span><span lang="en">About</span></a>
+        <a href="https://ulsh.dk/#lab"><span lang="da">Lab-notesbog</span><span lang="en">Lab notebook</span></a>
+        <a href="https://ulsh.dk/#mystery"><span lang="da">Mysterie</span><span lang="en">Mystery</span></a>
+        <a href="https://ulsh.dk/#contact"><span lang="da">Kontakt</span><span lang="en">Contact</span></a>
+      </nav>
+      <div class="lang-toggle" role="group" aria-label="Sprog / Language">
+        <button type="button" data-set-lang="da" aria-label="Dansk">DA</button>
+        <span aria-hidden="true">|</span>
+        <button type="button" data-set-lang="en" aria-label="English">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap game" lang="en">
+    <p class="notice">
+      <span lang="da"><span class="badge">Kommer snart</span> Spillet er stadig under udvikling</span>
+      <span lang="en"><span class="badge">Coming soon</span> This game is still being built</span>
+    </p>
+    <textarea id="query" rows="6" cols="60">SELECT 'hello' AS greeting, 1 + 1 AS answer;</textarea>
+    <button id="run">Run</button>
+    <div id="output" class="output">Loading...</div>
+  </main>
+
+  <script src="js/lang.js"></script>
+  <script src="lib/sql-wasm.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
