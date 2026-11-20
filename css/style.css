@@ -87,6 +87,9 @@ textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; border-col
 }
 .game button:hover { background: #98efa0; border-color: #98efa0; }
 
+.game button#clear { background: transparent; color: var(--accent); }
+.game button#clear:hover { background: var(--surface); border-color: var(--accent); }
+
 .output {
   padding: 16px 18px;
   background: var(--surface); color: var(--muted);

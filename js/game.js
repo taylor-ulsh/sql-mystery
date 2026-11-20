@@ -76,4 +76,8 @@ initSqlJs({ locateFile: function (file) { return 'lib/' + file; } }).then(functi
       output.textContent = 'Error: ' + error.message;
     }
   });
+  document.getElementById('clear').addEventListener('click', function () {
+    query.value = '';
+    query.focus();
+  });
 });
